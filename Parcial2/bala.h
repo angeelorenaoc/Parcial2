@@ -25,7 +25,7 @@ public:
     void DisparoOfensivo(Canion DO, Canion DD,int V0_);
     void DisparoDefensivo(Canion DO, Canion DD, int V0_);
     void DisparoDefensivo2(Canion DO, Canion DD, int V00, int anguloo, int vo0);
-    void DisparoDefensivo3(Canion DO,Canion DD, int V00, int angeloo, int vo0);
+    void DisparoDefensivo3(Canion DO,Canion DD, int V00, int anguloo, int vo0);
     void DisparoOfensivo1(Canion DO,Canion DD, int V00, int anguloo, int vo0, int angulod, int vd0);
 };
 
