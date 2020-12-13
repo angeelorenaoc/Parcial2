@@ -209,3 +209,52 @@ void Bala::DisparoDefensivo3(Canion DO, Canion DD, int V00, int anguloo, int vo0
     }
 }
 
+void Bala::DisparoOfensivo1(Canion DO, Canion DD, int V00, int anguloo, int vo0, int angulod, int vd0)
+{
+    int flag = 0;
+    float x,y,x2,y2,x3,y3;
+    float aux,auy;
+    float Vxo,Vy0, Vxoo,Vyoo,Vxd,Vyd;
+    int V0o = 0;
+    float t = 4;
+    int angle = 0;
+    Vxoo = vo0*cos((anguloo)*pi/180);
+    Vyoo = vo0*sin((anguloo)*pi/180);
+    Vxd = vd0*cos((angulod+90)*pi/180);
+    Vyd = vd0*sin((angulod+90)*pi/180);
+    for(V0o = V00; ; V0o += 5){
+        for(angle = 0; angle < 90; angle++){
+            Vxo = V0o*cos((angle)*pi/180);
+            Vy0 = V0o*sin((angle)*pi/180);
+            x = 0.0;
+            y = 0.0;
+            x2 = 0.0;
+            y2 = 0.0;
+            x3 = 0.0;
+            y3 = 0.0;
+            for(t = 4; ; t=+0.1){
+                x3 = Vxd*(t);
+                y3 = disparoD.Yd + Vyd*(t) -(0.5*G*(t)*(t));
+                x2 = Vxoo*(t);
+                y2 = disparoO.Yo + Vyoo*(t) -(0.5*G*(t)*(t));
+                x = disparoO.Xo+Vxo*t;
+                y = disparoO.Yo + Vy0*t -(0.5*G*t*t);
+                if(sqrt(pow((x3 - x),2)+pow((y3 - y),2)) < disparoO.d0 && sqrt(pow((x - x2),2)+pow((y - y2),2)) > disparoO.d0){
+                    if (y <= 0)break;
+                    else{
+                        flag++;
+                        cout << "Disparo numero " << flag << endl;
+                        ImprimirResultados1(angle,V0o,x,y,t);
+                        cout << "Posicion del proyectil ofensivo y defensivo" << endl;
+                        ImprimirResultados1(anguloo,vo0,x2,y2,t);
+                        ImprimirResultados1(angulod,vd0,x3,y3,t);
+                        cout << endl;
+                    }
+                }
+            }
+            if (flag == 3)break;
+        }
+        if (flag == 3)break;
+    }
+}
+
