@@ -1,7 +1,11 @@
 #ifndef BALA_H
 #define BALA_H
 #include "canion.h"
+#include <iostream>
+#include <cmath>
+#include <math.h>
 
+using namespace std;
 class Bala
 {
 private:
@@ -12,8 +16,10 @@ private:
     float v0;
     float xf;
     float yf;
+    float G=9.8;
+    float pi=3.1416;
 public:
-    Bala(int v0_);
+    Bala();
     float getV0() const;
     void ImprimirResultados(int ang, int v00, float x, float y, float t);
     void DisparoOfensivo(Canion DO, Canion DD,int V0_);
