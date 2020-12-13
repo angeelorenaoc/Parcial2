@@ -31,6 +31,6 @@ Canion::Canion(float d_,float h0_, float x0_, float y0_,float d0_)
     H0=h0_;
     x0=x0_;
     y0=y0_;
-    d0=d0_;
+    d0=d0_*d;
 
 }

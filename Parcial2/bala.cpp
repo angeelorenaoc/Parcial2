@@ -102,7 +102,7 @@ void Bala::DisparoDefensivo2(Canion DO, Canion DD, int V00, int anguloo, int vo0
     float x,y,x2,y2;
     float Vxo,Vy0, Vxoo,Vyoo;
     int V0o = 0;
-    float t = 0;
+    float t = 2.5;
     int angle = 0;
     Vxoo = vo0*cos((anguloo)*pi/180);
     Vyoo = vo0*sin((anguloo)*pi/180);
@@ -115,18 +115,18 @@ void Bala::DisparoDefensivo2(Canion DO, Canion DD, int V00, int anguloo, int vo0
             x2 = 0.0;
             y2 = 0.0;
             for(t = 0; ; t++){
-                x2 = Vxoo*(t+2.5);
-                y2 = DO.getY0() + Vyoo*(t+2.5) -(0.5*G*(t+2.5)*(t+2.5));
+                x2 = Vxoo*(t);
+                y2 = DO.getY0() + Vyoo*(t) -(0.5*G*(t)*(t));
                 x = DD.getX0()+Vxo*t;
                 y = DD.getY0() + Vy0*t -(0.5*G*t*t);
                 if(sqrt(pow((x2 - x),2)+pow((y2 - y),2)) < DD.getD0()){
-                    if(y<0) y = 0;
-                    ImprimirResultados(anguloo,vo0,x2,y2,t+2.5);
+                    if(y>0 && y2>0){
+                    ImprimirResultados(anguloo,vo0,x2,y2,t);
                     cout << "_________________________________"<<endl;
                     ImprimirResultados(angle, V0o, x, y, t);
                     flag += 1;
                     V0o += 50;
-                    break;
+                    break;}
                 }
                 if(y < 0){
                     break;
@@ -150,7 +150,7 @@ void Bala::DisparoDefensivo3(Canion DO, Canion DD, int V00, int anguloo, int vo0
     float aux,auy;
     float Vxo,Vy0, Vxoo,Vyoo;
     int V0o = 0;
-    float t = 0;
+    float t = 2.5;
     int angle = 0;
     Vxoo = vo0*cos((anguloo)*pi/180);
     Vyoo = vo0*sin((anguloo)*pi/180);
@@ -163,8 +163,8 @@ void Bala::DisparoDefensivo3(Canion DO, Canion DD, int V00, int anguloo, int vo0
             x2 = 0.0;
             y2 = 0.0;
             for(t = 0; ; t++){
-                x2 = Vxoo*(t+2.5);
-                y2 = DO.getY0() + Vyoo*(t+2.5) -(0.5*G*(t+2.5)*(t+2.5));
+                x2 = Vxoo*(t);
+                y2 = DO.getY0() + Vyoo*(t) -(0.5*G*(t)*(t));
                 x = DD.getX0()+Vxo*t;
                 y = DD.getY0() + Vy0*t -(0.5*G*t*t);
                 for(int t2 = t; ;t2++){
@@ -187,10 +187,11 @@ void Bala::DisparoDefensivo3(Canion DO, Canion DD, int V00, int anguloo, int vo0
                 }
                 if(sqrt(pow((x2 - x),2)+pow((y2 - y),2)) < DD.getD0()){
                     if(y<0) y = 0;
-                    ImprimirResultados(anguloo,vo0,x2,y2,t+2.5);
+                    flag += 1;
+                    cout << "Disparo numero " << flag << endl;
+                    ImprimirResultados(anguloo,vo0,x2,y2,t);
                     cout << "_________________________________"<<endl;
                     ImprimirResultados(angle, V0o, x, y, t);
-                    flag += 1;
                     V0o += 50;
                     break;
                 }
