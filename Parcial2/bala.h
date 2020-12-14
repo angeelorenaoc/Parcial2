@@ -10,8 +10,6 @@ class Bala
 {
 private:
     int angulo;
-    float vx;
-    float vy;
     float t;
     float v0;
     float xf;
