@@ -11,16 +11,21 @@ int main()
     Bala bala;
     int Voo,opcion=-1;
     while(opcion != 0){
-        cout << "1.Generar disparos (al menos tres) ofensivos que comprometan la integridad del";
-        cout << " cañón defensivo." << endl;
-        cout << "2.Generar disparos (al menos tres) defensivos que comprometan la integridad del";
-        cout << " cañón ofensivo." << endl;
-        cout << "3.Dado un disparo ofensivo, generar (al menos tres) disparos defensivos que impida";
-        cout <<" que el cañón defensivo sea destruido sin importar si el cañón ofensivo pueda ser destruido."<<endl;
-        cout << "4.Dado un disparo ofensivo, generar (al menos tres) disparo defensivos que impidan";
-        cout << " que los cañones defensivo y ofensivo puedan ser destruidos." <<endl;
-        cout << "5." << endl;
+        cout << "-----------------------------------------------------BIENVENIDO------------------------------------------------------" << endl;
+        cout << "1. Generar disparos (al menos tres) ofensivos que comprometan la integridad del";
+        cout << " canion defensivo." << endl;
+        cout << "2. Generar disparos (al menos tres) defensivos que comprometan la integridad del";
+        cout << " canion ofensivo." << endl;
+        cout << "3. Dado un disparo ofensivo, generar (al menos tres) disparos defensivos que impida";
+        cout <<" que el canion defensivo sea destruido sin importar si el canion ofensivo pueda ser destruido."<<endl;
+        cout << "4. Dado un disparo ofensivo, generar (al menos tres) disparo defensivos que impidan";
+        cout << " que los caniones defensivo y ofensivo puedan ser destruidos." <<endl;
+        cout << "5. Dado un disparo ofensivo efectivo y un disparo defensivo que comprometa la";
+        cout << "efectividad del ataque ofensivo, generar (al menos tres) disparos que neutralicen el ataque defensivo";
+        cout << "y permitan que el ataque ofensivo sea efectivo." << endl;
         cout << "0.Para salir." << endl;
+        cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
+        cout << "Ingrese una opcion: " << endl;
         cin >> opcion;
         switch (opcion) {
         case 0:break;

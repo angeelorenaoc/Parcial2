@@ -60,26 +60,25 @@ void Bala::DisparoOfensivo(Canion DO, Canion DD, int V0_)
 void Bala::DisparoDefensivo(Canion DO, Canion DD, int V0_)
 {
     int flag = 0;
+    float e = 0;
     float x,y;
     float Vxo,Vy0;
     int V0o = 0;
     int t = 0;
     int angle = 0;
-    for(V0o = V0_; ; V0o += 5){
+    for(V0o = V0_; ; V0o ++){
         for(angle = 0; angle < 90; angle++){
             Vxo = V0o*cos((angle+90)*pi/180);
             Vy0 = V0o*sin((angle+90)*pi/180);
             x = 0.0;
             y = 0.0;
             for(t = 0; ; t++){
-                x = Vxo*t;
+                x = DD.getX0()+Vxo*t;
                 y = DD.getY0() + Vy0*t -(0.5*G*t*t);
-                if(sqrt(pow((DO.getX0() - x),2)+pow((DO.getY0() - y),2)) < DD.getD0()){
-                    if(y<0) y = 0;
-                    flag += 1;
-                    cout << "Disparo " << flag << endl;
+                e = (sqrt(pow((DO.getX0() - x),2)+pow((DO.getY0() - y),2)));
+                if(e < DD.getD0()){
                     ImprimirResultados(angle, V0o, x, y, t);
-                    V0o += 50;
+                    flag += 1;
                     break;
                 }
                 if(y < 0){
