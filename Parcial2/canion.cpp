@@ -25,12 +25,12 @@ float Canion::getD() const
     return d;
 }
 
-Canion::Canion(float d_,float h0_, float x0_, float y0_,float d0_)
+Canion::Canion(float d_,float h0_, float x0_,float d0_)
 {
     d=d_;
     H0=h0_;
     x0=x0_;
-    y0=y0_;
+    y0=h0_;
     d0=d0_*d;
 
 }

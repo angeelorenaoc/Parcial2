@@ -11,7 +11,7 @@ private:
     float y0;
     float d0;
 public:
-    Canion(float d_,float h0_, float x0_, float y0_,float d0_);
+    Canion(float d_,float h0_, float x0_,float d0_);
     float getH0() const;
     float getX0() const;
     float getY0() const;
